@@ -3,11 +3,11 @@ import { Image } from '@/components/Image';
 import { SignIn } from './signin';
 import { SignUp } from './signup';
 
-type SignModalProps = {
+type AuthModalProps = {
   hide: () => void;
 };
 
-export const SignModal = ({ hide }: SignModalProps) => {
+export const AuthModal = ({ hide }: AuthModalProps) => {
   const [showSignIn, setShowSignIn] = useState(true);
 
   const handleChange = () => setShowSignIn((prev) => !prev);

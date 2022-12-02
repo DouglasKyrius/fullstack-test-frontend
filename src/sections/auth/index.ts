@@ -1,1 +1,1 @@
-export { SignModal } from './Auth';
+export { AuthModal } from './Auth';

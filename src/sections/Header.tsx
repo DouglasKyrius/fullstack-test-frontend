@@ -2,7 +2,7 @@ import tw from 'twin.macro';
 import { useAuth, useModal } from '@/hooks';
 import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
-import { SignModal } from './auth';
+import { AuthModal } from './auth';
 
 const ButtonWrapper = tw.div`
   w-32
@@ -31,7 +31,7 @@ export const Header = () => {
         </ButtonWrapper>
       )}
       <Modal {...modalOptions}>
-        <SignModal hide={toggle} />
+        <AuthModal hide={toggle} />
       </Modal>
     </div>
   );
