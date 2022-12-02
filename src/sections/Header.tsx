@@ -2,7 +2,7 @@ import tw from 'twin.macro';
 import { useAuth, useModal } from '@/hooks';
 import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
-import { SignModal } from './sign';
+import { SignModal } from './auth';
 
 const ButtonWrapper = tw.div`
   w-32

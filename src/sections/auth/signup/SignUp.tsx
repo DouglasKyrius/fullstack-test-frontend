@@ -1,4 +1,4 @@
-import { SubTitle, Title } from '../Sign.styles';
+import { SubTitle, Title } from '../Auth.styles';
 import { SignUpForm } from './SignUpForm';
 
 type SignUpProps = {

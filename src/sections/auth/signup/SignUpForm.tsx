@@ -1,52 +1,55 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useMutation } from '@apollo/client';
+import { useState } from 'react';
 import { useAuth } from '@/hooks';
 import { Button } from '@/components/button';
 import { PasswordInput, UsernameInput } from '@/components/form/FormComponents';
 import { isUsernameValid } from '@/utils/is-username-valid';
-import { LOGIN_USER } from '@/lib/graphql/mutations/login-user.graphql';
+import { CREATE_USER } from '@/lib/graphql/mutations/create-user.graphql';
+import { FetchError } from '../Auth.styles';
 
-interface LoginFormInterface {
+interface RegisterFormInterface {
   username: string;
   password: string;
 }
 
-type SignInFormProps = {
+type SignUpFormProps = {
   hide: () => void;
 };
 
-export const SignInForm = ({ hide }: SignInFormProps) => {
-  const { login } = useAuth();
+export const SignUpForm = ({ hide }: SignUpFormProps) => {
+  const { register } = useAuth();
+  const [fetchError, setFetchError] = useState('');
   const {
-    register,
+    register: registerForm,
     setError,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormInterface>();
+  } = useForm<RegisterFormInterface>();
 
-  const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-    update(_, { data: { loginUser: userData } }) {
-      login(userData);
+  const [createUser, { loading }] = useMutation(CREATE_USER, {
+    update(_, { data: { createUser: userData } }) {
+      register(userData);
       hide();
     },
-    onError({ graphQLErrors }) {
-      if (graphQLErrors[0].extensions.code === '404')
-        setError('username', {
-          type: 'user-not-found',
-          message: graphQLErrors[0].message,
-        });
+    onError({ graphQLErrors, networkError, clientErrors }) {
+      if (networkError || clientErrors.length) {
+        setFetchError('Internal server error, please try again later.');
+        return;
+      }
       if (graphQLErrors[0].extensions.code === 'BAD_USER_INPUT')
-        setError('password', {
-          type: 'user/password-invalid',
+        setError('username', {
+          type: 'user-in-use',
           message: graphQLErrors[0].message,
         });
     },
   });
 
-  const onSubmit: SubmitHandler<LoginFormInterface> = async ({
+  const onSubmit: SubmitHandler<RegisterFormInterface> = async ({
     username,
     password,
   }) => {
+    setFetchError('');
     if (!isUsernameValid(username)) {
       setError('username', {
         type: 'username-invalid',
@@ -56,9 +59,9 @@ export const SignInForm = ({ hide }: SignInFormProps) => {
       return;
     }
 
-    await loginUser({
+    await createUser({
       variables: {
-        loginUserInput: {
+        createUserInput: {
           username,
           password,
         },
@@ -68,23 +71,24 @@ export const SignInForm = ({ hide }: SignInFormProps) => {
 
   return (
     <>
+      {fetchError ? <FetchError>{fetchError}</FetchError> : null}
       <form className="mt-20 w-[342px]" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-8">
           <UsernameInput
             usernameErrors={errors.username}
-            registerForm={register}
+            registerForm={registerForm}
           />
         </div>
         <div className="mb-14">
           <PasswordInput
             passwordErrors={errors.password}
-            registerForm={register}
+            registerForm={registerForm}
           />
         </div>
 
         <div className="w-[300px] h-16 m-auto">
           <Button type="submit" isLoading={loading} borderless>
-            <span className="text-2xl">Sign in</span>
+            <span className="text-2xl">Sign up</span>
           </Button>
         </div>
       </form>
