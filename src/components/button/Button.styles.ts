@@ -30,7 +30,7 @@ export const DefaultButton = styled.button(
   ]
 );
 
-export const ButtonText = tw.p`
+export const ButtonText = tw.span`
   text-center
   font-semibold
 `;

@@ -3,6 +3,7 @@ import { Hero } from '@/sections/hero';
 import { Todo } from '@/sections/todo';
 import { Header } from '@/sections/Header';
 import { GoodThings } from '@/sections/good-things';
+import { Contact } from '@/sections/contact';
 
 export const Home = () => (
   <>
@@ -14,6 +15,10 @@ export const Home = () => (
     <div className="mt-20" />
     <div className="px-4 lg:px-10 max-w-screen-xl m-auto">
       <GoodThings />
+    </div>
+    <div className="mt-32" />
+    <div className="grid justify-center">
+      <Contact />
     </div>
     <div className="mt-20" />
   </>
