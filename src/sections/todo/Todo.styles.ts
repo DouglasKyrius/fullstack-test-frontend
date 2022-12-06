@@ -20,13 +20,15 @@ export const Title = tw.h1`
 export const Paragraph = tw.p`
   text-white
   font-medium
+  text-sm
+  md:text-base
 `;
 
 export const TodoColumnContainer = styled.div(
   ({ columnId }: { columnId: string }) => [
     tw`
       shadow-2xl
-      w-96
+      w-[360px]
       px-6
       py-10
       select-none
@@ -35,6 +37,7 @@ export const TodoColumnContainer = styled.div(
         mx-5
       )
       border-t-[1.25rem]
+      sm:w-96
     `,
     columnId === 'todo-column'
       ? tw`border-t-orange-500`

@@ -76,9 +76,14 @@ export const SignInForm = ({ hide }: SignInFormProps) => {
   };
 
   return (
-    <>
-      {fetchError ? <FetchError>{fetchError}</FetchError> : null}
-      <form className="mt-20 w-[342px]" onSubmit={handleSubmit(onSubmit)}>
+    <div className="grid justify-center lg:block">
+      <div className="relative mb-6 text-center">
+        {fetchError ? <FetchError>{fetchError}</FetchError> : null}
+      </div>
+      <form
+        className="mt-20 w-64 md:w-[342px]"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="mb-8">
           <UsernameInput
             usernameErrors={errors.username}
@@ -92,12 +97,12 @@ export const SignInForm = ({ hide }: SignInFormProps) => {
           />
         </div>
 
-        <div className="w-[300px] h-16 m-auto">
+        <div className="w-56 h-14 m-auto md:w-[300px] md:h-16">
           <Button type="submit" isLoading={loading} borderless>
             <span className="text-2xl">Sign in</span>
           </Button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
