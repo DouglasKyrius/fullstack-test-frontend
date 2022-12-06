@@ -7,7 +7,9 @@ export const GreenRectangle = tw.div`
   rounded-xl
   w-[22.5rem]
   h-[32rem]
-  lg:(
+  sm:w-[28rem]
+  md:w-[46rem]
+  xl:(
     w-[67.5rem]
   )
 `;

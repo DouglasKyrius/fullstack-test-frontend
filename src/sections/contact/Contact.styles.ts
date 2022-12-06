@@ -3,7 +3,10 @@ import tw from 'twin.macro';
 export const ContactContainer = tw.div`
   rounded
   shadow-xl
-  lg:w-[43rem]
+  p-8
+  w-[22.5rem]
+  sm:w-[32rem]
+  md:w-[43rem]
   lg:p-16
 `;
 

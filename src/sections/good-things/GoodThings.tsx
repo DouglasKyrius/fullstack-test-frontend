@@ -56,7 +56,7 @@ export const GoodThings = () => {
   };
 
   return (
-    <>
+    <div className="sm:ml-10 md:ml-0">
       <GreenRectangle />
       <div className="flex flex-col gap-y-10 pt-12 lg:pt-20 lg:pl-20">
         <Title>good things</Title>
@@ -69,6 +69,6 @@ export const GoodThings = () => {
           ))}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
