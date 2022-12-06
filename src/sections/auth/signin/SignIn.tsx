@@ -7,8 +7,10 @@ type SignInProps = {
 
 export const SignIn = ({ hide }: SignInProps) => (
   <>
-    <Title>Sign in</Title>
-    <SubTitle>to access your list</SubTitle>
+    <div className="text-center lg:text-left">
+      <Title>Sign in</Title>
+      <SubTitle>to access your list</SubTitle>
+    </div>
     <SignInForm hide={hide} />
   </>
 );

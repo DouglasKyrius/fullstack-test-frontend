@@ -1,16 +1,10 @@
-import { memo, ReactElement } from 'react';
-import { Effect, LazyLoadImage } from 'react-lazy-load-image-component';
+import { memo } from 'react';
+import {
+  LazyLoadImage,
+  LazyLoadImageProps,
+} from 'react-lazy-load-image-component';
 
-type ImageProps = {
-  src?: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-  effect?: Effect | undefined;
-  placeholder?: ReactElement;
-  placeholderSrc?: string;
-  visibleByDefault?: boolean;
-};
+type ImageProps = LazyLoadImageProps;
 
 export const Image = memo(
   ({
@@ -22,6 +16,7 @@ export const Image = memo(
     placeholder,
     placeholderSrc,
     visibleByDefault,
+    ...otherProps
   }: ImageProps) => (
     <LazyLoadImage
       src={src}
@@ -32,6 +27,7 @@ export const Image = memo(
       placeholder={placeholder}
       placeholderSrc={placeholderSrc}
       visibleByDefault={visibleByDefault}
+      {...otherProps}
     />
   )
 );

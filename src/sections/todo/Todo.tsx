@@ -82,7 +82,7 @@ export const Todo = () => {
       <div className="text-center relative">
         <div className="pt-20">
           <div className="grid justify-center">
-            <Title>To-do List</Title>
+            <Title id="todo-section">To-do List</Title>
           </div>
           <div className="mt-10" />
           <Paragraph>
@@ -114,7 +114,6 @@ export const Todo = () => {
           )}
         </div>
       </DragDropContext>
-      <div className="mt-44" />
     </>
   );
 };

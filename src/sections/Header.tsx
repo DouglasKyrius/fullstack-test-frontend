@@ -1,11 +1,12 @@
 import tw from 'twin.macro';
+import { RxExit } from 'react-icons/rx';
 import { useAuth, useModal } from '@/hooks';
 import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
 import { AuthModal } from './auth';
 
 const ButtonWrapper = tw.div`
-  w-32
+  w-36
   h-10
 `;
 
@@ -15,12 +16,16 @@ export const Header = () => {
   const [modalOptions, toggle] = useModal();
 
   return (
-    <div className="flex justify-between py-14">
-      <img src="/logo.svg" alt="logo coopers" />
+    <div className="flex justify-between items-center py-14">
+      <img src="/logo.svg" alt="logo coopers" className="hidden md:block" />
+      <img src="/mark.svg" alt="logo coopers" className="block md:hidden" />
       {user ? (
         <ButtonWrapper onClick={logout}>
           <Button type="button" isBlack borderless>
-            {user.username}
+            <span className="flex items-center gap-x-2">
+              {user.username}
+              <RxExit />
+            </span>
           </Button>
         </ButtonWrapper>
       ) : (

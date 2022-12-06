@@ -29,9 +29,10 @@ export const ModalContainer = tw.div`
   relative
   bg-white
   mx-4
-  p-8
+  px-12
+  py-8
   [z-index: 100]
-  md:(
+  lg:(
     pt-16
     pl-12
     pr-40

@@ -14,17 +14,20 @@ export const AuthModal = ({ hide }: AuthModalProps) => {
 
   return (
     <div className="flex items-start gap-x-10">
-      <Image src="/sign-woman.svg" />
-      <div>
+      <Image src="/sign-woman.svg" className="hidden lg:block" />
+
+      <div className="grid justify-center">
         {showSignIn ? <SignIn hide={hide} /> : <SignUp hide={hide} />}
         <button
           type="button"
           onClick={handleChange}
-          className="text-sm text-green-600 mt-4 w-[342px] text-center"
+          className="text-xs text-green-600 mt-4 w-full text-center md:text-sm lg:w-[342px]"
         >
-          {showSignIn
-            ? "Don't have an account? Sign up for free"
-            : 'Already have an account? Sign in'}
+          {showSignIn ? (
+            <p>Don&apos;t have an account? Sign up for free</p>
+          ) : (
+            <p>Already have an account? Sign in</p>
+          )}
         </button>
       </div>
 
