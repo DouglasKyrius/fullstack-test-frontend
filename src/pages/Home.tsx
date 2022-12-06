@@ -1,9 +1,9 @@
-import React from 'react';
 import { Hero } from '@/sections/hero';
 import { Todo } from '@/sections/todo';
 import { Header } from '@/sections/Header';
 import { GoodThings } from '@/sections/good-things';
 import { Contact } from '@/sections/contact';
+import { Footer } from '@/sections/footer/Footer';
 
 export const Home = () => (
   <>
@@ -21,5 +21,7 @@ export const Home = () => (
       <Contact />
     </div>
     <div className="mt-20" />
+
+    <Footer />
   </>
 );
