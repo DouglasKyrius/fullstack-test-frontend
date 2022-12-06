@@ -14,7 +14,12 @@ export const AuthModal = ({ hide }: AuthModalProps) => {
 
   return (
     <div className="flex items-start gap-x-10">
-      <Image src="/sign-woman.svg" className="hidden lg:block" />
+      <Image
+        src="/sign-woman.svg"
+        width={231}
+        height={231}
+        className="hidden lg:block"
+      />
 
       <div className="grid justify-center">
         {showSignIn ? <SignIn hide={hide} /> : <SignUp hide={hide} />}
