@@ -1,11 +1,12 @@
 import tw from 'twin.macro';
+import { RxExit } from 'react-icons/rx';
 import { useAuth, useModal } from '@/hooks';
 import { Button } from '@/components/button';
 import { Modal } from '@/components/modal';
 import { AuthModal } from './auth';
 
 const ButtonWrapper = tw.div`
-  w-32
+  w-36
   h-10
 `;
 
@@ -21,7 +22,10 @@ export const Header = () => {
       {user ? (
         <ButtonWrapper onClick={logout}>
           <Button type="button" isBlack borderless>
-            {user.username}
+            <span className="flex items-center gap-x-2">
+              {user.username}
+              <RxExit />
+            </span>
           </Button>
         </ButtonWrapper>
       ) : (
