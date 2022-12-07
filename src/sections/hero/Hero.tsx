@@ -1,6 +1,5 @@
 import { Button } from '@/components/button';
 import { Image } from '@/components/Image';
-import { MarkBG } from '@/components/background-svg';
 import { HeroTitle, MarkBackground, Paragraph, SubTitle } from './Hero.styles';
 
 export const Hero = () => (
