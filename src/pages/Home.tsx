@@ -13,7 +13,7 @@ export const Home = () => (
     </div>
     <Todo />
     <div className="mt-20" />
-    <div className="px-4 lg:px-10 max-w-screen-xl m-auto">
+    <div className="min-[370px]:px-2 min-[400px]:px-4 lg:px-10 max-w-screen-xl m-auto">
       <GoodThings />
     </div>
     <div className="mt-32" />
