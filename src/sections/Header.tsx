@@ -16,9 +16,7 @@ export const Header = () => {
   const [modalOptions, toggle] = useModal();
 
   return (
-    <div className="flex justify-between items-center py-14">
-      <img src="/logo.svg" alt="logo coopers" className="hidden md:block" />
-      <img src="/mark.svg" alt="logo coopers" className="block md:hidden" />
+    <div className="flex justify-end items-center py-14">
       {user ? (
         <ButtonWrapper onClick={logout}>
           <Button type="button" isBlack borderless>

@@ -13,9 +13,9 @@ export const Footer = () => (
       <div className="absolute bottom-0">
         <FooterText>Need help?</FooterText>
         <div className="mt-5" />
-        <FooterText>coopers@coopers.pro</FooterText>
+        <FooterText>douglaskyrius@gmail.com</FooterText>
         <div className="mt-3" />
-        <p className="text-white">© 2021 Coopers. All rights reserved.</p>
+        <p className="text-white">© 2023 Douglas. All rights reserved.</p>
         <div className="flex justify-center w-full mt-7">
           <FooterGreen />
         </div>
